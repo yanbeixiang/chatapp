@@ -6,7 +6,7 @@
 	<div class="mainContent message-show">
 		<ul class="mess-list">
 			{{#each messages}}
-				<li class="{{ownClass formUserId}}"><span class="txt">{{message}}</span></li>
+				<li class="{{ownClass formUserId}}"><img src="{{imgpath}}{{#if ownClass formUserId}}tx.jpg{{else}}tx2.jpg{{/if}}" class="img" /><span class="txt">{{message}}</span></li>
 			{{/each}}
 		</ul>
 	</div>

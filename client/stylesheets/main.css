@@ -76,6 +76,18 @@ body{
     width:80%;
     padding:10px 0;
 }
+.mess-list .img{
+	width: 34px;
+	height:34px;
+	border-radius:50%;
+	vertical-align:top;
+	margin-right:10px;
+}
+.mess-list .own .img{
+	float:right;
+	margin-left:10px;
+	margin-right:0;
+}
 .mess-list .txt{
 	position:relative;
 	border-radius:5px;
@@ -126,13 +138,13 @@ body{
 }
 
 .info-block{
-	margin-top:20%;
+	margin-top:40px;
 	text-align:center;
 }
 .info-block .img{
 	width:150px;
 	height:150px;
-	border-radius:100%;
+	border-radius:50%;
 	margin-bottom:15px;
 }
 .info-block .txt{
