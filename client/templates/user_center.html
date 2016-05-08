@@ -1,0 +1,17 @@
+<template name="userCenter">
+	<div class="topBar">
+		<a href="{{pathFor 'friendList'}}" class="glyphicon glyphicon-menu-left pull-left"></a>
+		基本信息
+	</div>
+	<div class="mainContent">
+		<div class="info-block">
+			<img src="tx.jpg" class="img">
+			<p class="txt">{{username}}</p>
+		</div>
+		<nav class="navbar-fixed-bottom">
+		    <ul class="nav nav-pills nav-stacked">
+			  <li role="presentation" class="text-center border-top"><a href="#" class="logout"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;退出账号</a></li>
+			</ul>
+		</nav>
+	</div>
+</template>

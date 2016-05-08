@@ -1,0 +1,24 @@
+<template name="friendAdd">
+	<div class="topBar navbar-fixed-top">
+		<a href="{{pathFor 'friendList'}}" class="glyphicon glyphicon-menu-left pull-left"></a>
+		添加好友
+	</div>
+	<div class="search-bar">
+		<form>
+			<div class="input-group">
+		      	<input type="text" class="form-control" name="username" value="{{username}}" placeholder="用户名">
+		      	<span class="input-group-btn">
+		      		<input type="submit" class="btn btn-default" value="搜索" />
+		      	</span>
+		    </div>
+		</form>
+	</div>
+	<ul class="list-group adduser-content">
+    	{{#each users}}
+			<li class="list-group-item">
+				<a href="#" class="btn btn-info btn-xs pull-right addfriend">添加</a>
+				{{username}}
+			</li>
+    	{{/each}}
+	</ul>
+</template>
