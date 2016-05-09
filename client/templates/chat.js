@@ -12,7 +12,7 @@ Template.chat.onRendered(function(){
 		messageCount = messages.count();
 
 	//messages改变时调用pageInit
-	messages.observe({
+	messagesHandle = messages.observe({
 		added: pageInit(friendId,messageCount)
 	});
 });
@@ -22,12 +22,20 @@ Template.chat.events({
 		e.preventDefault();
 
 		var message = $(e.target).find('[name=message]');
-
-		var chatlog = {
-			message:message.val(),
-			toUserId: this.friend._id
+		if (!message.val()) {
+			message.focus()
+			return false;
+		}
+		var messages = this.messages,
+			friendId = this.friend._id,
+			chatlog = {
+			message: message.val(),
+			toUserId: friendId
 		};
-		Meteor.call('messagesInsert', chatlog, function() {
+		Meteor.call('messagesInsert', chatlog, function(error) {
+			if (error) {
+				throwError(error.reason);
+			}
 			message.val('').focus();
 		});
 	}
@@ -41,12 +49,14 @@ function pageInit(friendId,messageCount) {
 	return function(message) {
 		if (isfirst) {
 			count++;
-			if(messageCount !== count){
+
+			if(messageCount != 0 && messageCount !== count){
 				return false;
 			}else{
 				isfirst = false;
 			}
 		}
+
 		var messageContainer = $('.message-show');
 		if (messageContainer.length >0 ){
 			var scrollTop=messageContainer[0].scrollHeight - messageContainer.height();

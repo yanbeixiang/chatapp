@@ -8,7 +8,7 @@ Template.friendList.helpers({
 		//未读消息条数
 		_.each(friends,function(friend){
 			friendId = friend.id;
-			count = Messages.find({formUserId: friendId}).count();
+			count = Messages.find({formUserId: friendId, status: false}).count();
 			friend.unreadCount = count;
 		});
 
